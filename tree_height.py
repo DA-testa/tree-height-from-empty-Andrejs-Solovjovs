@@ -1,4 +1,5 @@
-# python3 221RDB4442 Andrejs Solovjovs
+# python3 
+# 221RDB4442 Andrejs Solovjovs
 
 import sys
 import threading
