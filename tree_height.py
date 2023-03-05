@@ -33,9 +33,9 @@ def input_from_keyboard():
             return n, parents
     return None, None
 
-def input_from_file(file_dir):
+def input_from_file(file_path):
     try:
-        with open(f"./test/{file_dir}") as f:
+        with open(f"./test/{file_path}") as f:
             contents = f.readlines()
     except:
         print("ERROR")
@@ -52,9 +52,9 @@ def input_from_file(file_dir):
 def main():
     input_method = input().strip()
     if input_method == "F":
-        file_dir = input().strip()
-        if str(file_dir[-1]) != "a":
-            n, parents = input_from_file(file_dir)
+        file_path = input().strip()
+        if str(file_path[-1]) != "a":
+            n, parents = input_from_file(file_path)
             if n and parents:
                 height = compute_height(n, parents)
                 print(int(height))
