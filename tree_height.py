@@ -25,7 +25,7 @@ def compute_height(n, parents):
             max_height = height
     return max_height
 
-def input_from_keyboard():
+def input_from_user():
     n = input().strip()
     if n:
         parents = input().strip().split(" ")
@@ -59,7 +59,7 @@ def main():
                 height = compute_height(n, parents)
                 print(int(height))
     elif input_method == "I":
-        n, parents = input_from_keyboard()
+        n, parents = input_from_user()
         if n and parents:
             height = compute_height(n, parents)
             print(int(height))
