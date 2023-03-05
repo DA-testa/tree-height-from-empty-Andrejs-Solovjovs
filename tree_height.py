@@ -4,7 +4,7 @@ import sys
 import threading
 import numpy as np
 
-def compute_tree_height(n, parents):
+def compute_height(n, parents):
     heights = np.zeros(int(n))
     max_height = 0
     for i in range(int(n)):
@@ -24,7 +24,7 @@ def compute_tree_height(n, parents):
             max_height = height
     return max_height
 
-def get_input_from_keyboard():
+def input_from_keyboard():
     n = input().strip()
     if n:
         parents = input().strip().split(" ")
@@ -32,7 +32,7 @@ def get_input_from_keyboard():
             return n, parents
     return None, None
 
-def get_input_from_file(file_dir):
+def input_from_file(file_dir):
     try:
         with open(f"./test/{file_dir}") as f:
             contents = f.readlines()
@@ -53,15 +53,16 @@ def main():
     if input_method == "F":
         file_dir = input().strip()
         if str(file_dir[-1]) != "a":
-            n, parents = get_input_from_file(file_dir)
+            n, parents = input_from_file(file_dir)
             if n and parents:
-                height = compute_tree_height(n, parents)
+                height = compute_height(n, parents)
                 print(int(height))
     elif input_method == "I":
-        n, parents = get_input_from_keyboard()
+        n, parents = input_from_keyboard()
         if n and parents:
-            height = compute_tree_height(n, parents)
+            height = compute_height(n, parents)
             print(int(height))
 
 sys.setrecursionlimit(10 ** 7) 
-threading.stack_size(2 ** 27)  
+threading.stack_size(2 ** 27) 
+threading.Thread(target=main).start()
